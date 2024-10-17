@@ -1,3 +1,7 @@
+//Main reason for this approach to be best is the partition method. Which significantly reduces execution time.
+// Then other contributions like tail call handling in sort method
+// using simpler sorting methods for smaller ranges
+
 
     static ArrayList<Integer> quick_sort(ArrayList<Integer> arr) {
         int[] arr1 = arr.stream()
@@ -46,6 +50,25 @@
         swap(arr, i + 1, high);  // Restore pivot
         return i + 1;
     }
+
+/*
+Normal partition method
+
+private static int partition(List<Integer> numbers, int start, int end) {
+        int pivot = numbers.get(start);
+        int i = start+1;
+        for (int j = start+1; j < end; j++) {
+            if(numbers.get(j) < pivot) {
+                swap(numbers, i, j);
+                i++;
+            }
+        }
+        swap(numbers, start, i-1);
+        return i-1;
+    }
+
+
+*/
     static void insertionSort(int[] arr, int low, int high) {
         for (int i = low + 1; i <= high; i++) {
             int key = arr[i];
