@@ -1,0 +1,35 @@
+
+    static Long find_num(ArrayList<Long> arr) {
+         // Define chunk size
+        final int CHUNK_SIZE = 320;
+
+        // Sort the list using streams
+        List<Long> sortedList = arr.stream().sorted().collect(Collectors.toList());
+
+        // Process each chunk to find the first missing number
+        return IntStream.range(0, (sortedList.size() + CHUNK_SIZE - 1) / CHUNK_SIZE) // Calculate number of chunks
+                .mapToObj(i -> sortedList.subList(i * CHUNK_SIZE, Math.min((i + 1) * CHUNK_SIZE, sortedList.size())))
+                .flatMapToLong(chunk -> findMissingInChunk(chunk).stream())
+                .findFirst()
+                .orElse(sortedList.get(sortedList.size() - 1) + 1);
+    }
+    
+     private static OptionalLong findMissingInChunk(List<Long> chunk) {
+        return IntStream.range(1, chunk.size())
+                .filter(i -> chunk.get(i) != chunk.get(i - 1) + 1) // Check if there's a gap
+                .mapToLong(i -> chunk.get(i - 1) + 1) // Calculate the missing number
+                .findFirst();
+    }
+
+    public static void main(String[] args) {
+        // Example: Large list with some missing numbers
+        ArrayList<Long> sequentialLongList = LongStream.range(0, 10000000)
+                .boxed()
+                .collect(Collectors.toCollection(ArrayList::new));
+        sequentialLongList.remove(50);
+        // Define chunk size
+        final int CHUNK_SIZE = 10;
+        System.out.println("Missing number: " + find_num(sequentialLongList));
+        //Testing.counting_sort(arr);
+        //arr.forEach(x-> System.out.println("->" + x));
+    }
