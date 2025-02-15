@@ -132,7 +132,7 @@ public class ExecutionTimeAspect {
     public Object measureExecutionTime(ProceedingJoinPoint joinPoint) throws Throwable {
         long start = System.currentTimeMillis();
         
-        Object result = joinPoint.proceed(); // Execute method
+        Object result = joinPoint.proceed(); // Execute target method fetchProductDetails()
         
         long end = System.currentTimeMillis();
         System.out.println("Execution time of " + joinPoint.getSignature() + ": " + (end - start) + " ms");
