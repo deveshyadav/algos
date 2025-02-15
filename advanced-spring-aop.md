@@ -90,6 +90,8 @@ public class TransactionalAopApplication {
             }
         };
     }
+    //We can use this property to check logs. It will show the rollback is happening
+    //logging.level.org.springframework.transaction=DEBUG
 }
 ```
 
