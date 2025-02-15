@@ -272,6 +272,28 @@ Exception Message: Order ID cannot be zero!
 }
 ```
 
+### 4.5 Weaving Happens Here
+Spring AOP dynamically creates a proxy object of OrderService, injecting the aspect into it.
+
+So instead of directly calling:
+
+```java
+OrderService orderService = new OrderService();
+```
+
+Spring creates a proxy object like this:
+
+```java
+OrderService orderService = (OrderService) Proxy.newProxyInstance(...);
+```
+
+Now, when placeOrder() is called:
+
+1. Spring intercepts the call.
+2. The LoggingAspect executes @Before advice.
+3. The actual placeOrder() method executes.
+4. The LoggingAspect executes @After advice.
+
 ---
 
 ## 📌 5. Summary
