@@ -1,8 +1,9 @@
+package sorting;
+
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.PriorityQueue;
 
-public class Testing{
+public class HeapSort{
 
     public static void main(String[] args) {
         ArrayList<Integer> arr = new ArrayList<>(Arrays.asList(1,5,9,2,6,2,82,4,5));

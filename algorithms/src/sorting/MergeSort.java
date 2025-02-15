@@ -1,10 +1,10 @@
-package net.javaguides.orderservice.config;
+package sorting;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Test {
+public class MergeSort {
 
     public static int mergeSort(List<Integer> list) {
         if (list.size() <= 1) {

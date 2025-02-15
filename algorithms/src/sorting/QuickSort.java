@@ -1,4 +1,4 @@
-package net.javaguides.orderservice.config;
+package sorting;
 
 import java.util.*;
 

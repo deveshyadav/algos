@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Test {
+public class InversionPairs {
 
     public static int mergeSort(List<Integer> list) {
         if (list.size() <= 1) {

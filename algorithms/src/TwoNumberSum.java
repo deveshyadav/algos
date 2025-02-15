@@ -2,7 +2,7 @@ package net.javaguides.orderservice.config;
 
 import java.util.*;
 
-public class Test {
+public class TwoNumberSum {
 
 
     public static void main(String[] args) {
