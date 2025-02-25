@@ -145,6 +145,9 @@ Servers Required = (Total RPS) / (RPS per server)
 | Storage | MySQL, PostgreSQL, DynamoDB, Cassandra |
 | Static Content Delivery | Cloudflare, Akamai (CDN) |
 
+###HLD Data flow
+![Untitled diagram-2025-02-25-062345](https://github.com/user-attachments/assets/5073c541-89f5-4336-808a-bf09601e563d)
+
 ---
 
 ## **7️⃣ Scalability & Performance Optimization**
@@ -175,3 +178,75 @@ Servers Required = (Total RPS) / (RPS per server)
 - **Auto-scaled microservices optimize performance.**  
 
 🚀 **This architecture ensures Amazon-scale performance while remaining cost-effective!** 🚀
+
+
+
+
+This is mermaid.live code to generate HLD
+
+graph TD;
+
+    %% User Interaction
+    User["User"] -->|Browse/Search| LoadBalancer
+    User -->|Checkout| LoadBalancer
+    User -->|Order Tracking| LoadBalancer
+
+    %% Load Balancer & API Gateway
+    LoadBalancer["Load Balancer (Nginx/AWS ALB)"] --> APIGateway
+    APIGateway["API Gateway (Kong/AWS API Gateway)"] -->|Auth| AuthService
+    APIGateway -->|Product Search| ProductService
+    APIGateway -->|Cart Management| CartService
+    APIGateway -->|Order Processing| OrderService
+    APIGateway -->|Payments| PaymentService
+    APIGateway -->|Recommendation Engine| RecommendationService
+
+    %% Authentication & User Data
+    AuthService["Authentication Service"] -->|User Data| UserDB["User Database (MySQL)"]
+    AuthService -->|Session Data| RedisCache["Cache (Redis)"]
+    
+    %% Product & Search Service
+    ProductService["Product Service"] -->|Fetch Product Data| ProductDB["Product Database (DynamoDB)"]
+    ProductService -->|Indexing| SearchIndex["Search Engine (Elasticsearch)"]
+    ProductService -->|Cache Results| RedisCache
+
+    %% Shopping Cart Service
+    CartService["Cart Service"] -->|Manage Cart| RedisCache
+    CartService -->|Fetch Product Details| ProductDB
+
+    %% Order Processing & Payment Flow
+    OrderService["Order Service"] -->|Validate Order| ProductDB
+    OrderService -->|Update Inventory| InventoryDB["Inventory Database (Cassandra)"]
+    OrderService -->|Queue Order| KafkaQueue["Event Queue (Kafka)"]
+    OrderService -->|Store Order| OrderDB["Order Database (PostgreSQL)"]
+    OrderService -->|Notify User| NotificationService["Notification Service"]
+
+    PaymentService["Payment Service"] -->|Process Payment| PaymentGateway["Payment Gateway (Stripe/PayPal)"]
+    PaymentService -->|Store Transaction| PaymentDB["Payment Database (PostgreSQL)"]
+    PaymentService -->|Send Payment Event| KafkaQueue
+
+    %% Order Event Processing
+    KafkaQueue -->|Process Order Events| OrderProcessor["Order Event Processor"]
+    OrderProcessor -->|Update Order Status| OrderDB
+    OrderProcessor -->|Trigger Shipment| ShippingService["Shipping & Logistics Service"]
+
+    %% Shipping & Logistics
+    ShippingService -->|Track Shipment| TrackingDB["Tracking Database"]
+    ShippingService -->|Notify User| NotificationService
+
+    %% Static Content Delivery
+    CDN["Content Delivery Network (Cloudflare/Akamai)"] --> User
+
+    %% External Services
+    NotificationService -->|Send Notifications| EmailService["Email/SMS Service"]
+
+    %% Legend
+    classDef service fill:#f4d03f,stroke:#d4ac0d,stroke-width:2px;
+    classDef database fill:#aed6f1,stroke:#5dade2,stroke-width:2px;
+    classDef queue fill:#d5f5e3,stroke:#27ae60,stroke-width:2px;
+    classDef external fill:#f9e79f,stroke:#d68910,stroke-width:2px;
+
+    class AuthService,ProductService,CartService,OrderService,PaymentService,RecommendationService,ShippingService,NotificationService service;
+    class ProductDB,UserDB,OrderDB,InventoryDB,PaymentDB,SearchIndex,TrackingDB database;
+    class KafkaQueue queue;
+    class PaymentGateway,CDN,EmailService external;
+
