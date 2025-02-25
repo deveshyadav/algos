@@ -182,7 +182,7 @@ Servers Required = (Total RPS) / (RPS per server)
 
 
 
-This is mermaid.live code to generate HLD
+This is [mermaid.live](https://www.mermaidchart.com/) code to generate HLD
 
 graph TD;
 
