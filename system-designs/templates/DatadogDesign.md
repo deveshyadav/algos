@@ -120,7 +120,7 @@ graph TD;
     Servers["10,000 Servers"] -->|Metrics Stream| Kafka["Kafka Event Stream"]
 
     %% Processing Layer
-    Kafka -->|Consume Metrics| Flink["Apache Flink or Kafka STreams(Streaming)"]
+    Kafka -->|Consume Metrics| FlinkOrKafka["Apache Flink or Kafka STreams (Streaming)"]
     FlinkOrKafka -->|Aggregated Data| Redis["Redis (Hot Cache)"]
     FlinkOrKafka -->|Aggregated Data| Druid["Apache Druid (Time-Series DB)"]
 
