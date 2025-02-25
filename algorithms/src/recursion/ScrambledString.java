@@ -1,10 +1,9 @@
 package recursion;
 
 public class ScrambledString {
-    static String sss = "rgeat";
+    static String sss = "eatgr";
     public static void main(String[] args) {
         String s1 = "great";
-        String s2= "rgeat";
         boolean result = scrambled(s1);
         System.out.println(" Scrambled:- "+result);
     }
@@ -21,6 +20,5 @@ public class ScrambledString {
     private static void split(String s, int index){
         String s1 = s.substring(0, index);
         String s2 = s.substring(index);
-        //String s3 = scrambled(s1) + scrambled(s2);
     }
 }

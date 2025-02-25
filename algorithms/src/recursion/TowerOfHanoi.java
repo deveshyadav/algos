@@ -8,7 +8,6 @@ public class TowerOfHanoi {
         int n = 4;
         ArrayList<ArrayList<String>> arrayLists = towerOfHanoi(n);
         System.out.println(arrayLists);
-
     }
 
     private static ArrayList<ArrayList<String>> towerOfHanoi(int n) {
