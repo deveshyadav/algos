@@ -121,7 +121,7 @@ graph TD;
 
     %% Processing Layer
     Kafka -->|Consume Metrics| Flink["Apache Flink or Kafka STreams(Streaming)"]
-    FlinkOrkafka -->|Aggregated Data| Redis["Redis (Hot Cache)"]
+    FlinkOrKafka -->|Aggregated Data| Redis["Redis (Hot Cache)"]
     FlinkOrKafka -->|Aggregated Data| Druid["Apache Druid (Time-Series DB)"]
 
     %% Query Layer
