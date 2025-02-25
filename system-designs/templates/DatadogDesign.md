@@ -120,9 +120,9 @@ graph TD;
     Servers["10,000 Servers"] -->|Metrics Stream| Kafka["Kafka Event Stream"]
 
     %% Processing Layer
-    Kafka -->|Consume Metrics| Flink["Apache Flink (Streaming)"]
-    Flink -->|Aggregated Data| Redis["Redis (Hot Cache)"]
-    Flink -->|Aggregated Data| Druid["Apache Druid (Time-Series DB)"]
+    Kafka -->|Consume Metrics| Flink["Apache Flink/kafka (Streaming)"]
+    Flink/kafka -->|Aggregated Data| Redis["Redis (Hot Cache)"]
+    Flink/kafka -->|Aggregated Data| Druid["Apache Druid (Time-Series DB)"]
 
     %% Query Layer
     User["User / Dashboard"] -->|API Requests| API["REST API (Node.js/Spring Boot)"]
