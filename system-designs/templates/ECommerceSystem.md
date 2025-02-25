@@ -145,7 +145,7 @@ Servers Required = (Total RPS) / (RPS per server)
 | Storage | MySQL, PostgreSQL, DynamoDB, Cassandra |
 | Static Content Delivery | Cloudflare, Akamai (CDN) |
 
-###HLD Data flow
+### HLD Data flow
 ![Untitled diagram-2025-02-25-062345](https://github.com/user-attachments/assets/5073c541-89f5-4336-808a-bf09601e563d)
 
 ---
