@@ -158,7 +158,7 @@ graph TD;
 
 ---
 
-## **🔹 Summary & Explanation for Interview**
+## **🔹 Summary & Explanation**
 1. **Ingestion**: **Kafka** handles high-throughput metrics streaming.  
 2. **Processing**: **Apache Flink** aggregates at **1-minute granularity**.  
 3. **Storage**:  
