@@ -45,6 +45,41 @@ Amazon-like e-commerce system needs to handle:
 - **Payment Transactions:** 2K RPS  
 - **Total Peak RPS:** 117K RPS  
 
+## Search Queries Per Day
+
+### **Estimation:** 500M  
+A typical e-commerce user performs multiple searches daily.  
+Assuming **10 queries per DAU**:
+
+\[
+\text{Search Queries} = \text{DAU} \times 10
+\]
+
+\[
+= 50M \times 10 = 500M
+\]
+
+We assume **500M search queries per day**, and each search triggers multiple requests (e.g., pagination, filters).
+
+### **Browsing/Search Requests Calculation**
+Assuming an **average of 20 requests per search**:
+
+\[
+\text{Browsing/Search Requests} = 500M \times 20 = 10B \text{ requests per day}
+\]
+
+### **Requests Per Second (RPS) Calculation**
+Using the formula:
+
+\[
+RPS = \frac{\text{Daily Requests}}{86400 \text{ (seconds per day)}}
+\]
+
+\[
+RPS = \frac{10B}{86400} \approx 115K \text{ RPS}
+\]
+
+
 **Formula for RPS Calculation:**
 ```
 RPS = (Daily Requests) / (86400 seconds per day)
