@@ -45,8 +45,7 @@ Amazon-like e-commerce system needs to handle:
 - **Payment Transactions:** 2K RPS  
 - **Total Peak RPS:** 117K RPS  
 
-## Search Queries Per Day
-
+### Search Queries Per Day
 ### **Estimation:** 500M  
 A typical e-commerce user performs multiple searches daily.  
 Assuming **10 queries per DAU**:
