@@ -55,7 +55,7 @@ Assuming **10 queries per DAU**:
 \]
 
 \[
-= 50M \times 10 = 500M
+= 50M times 10 = 500M
 \]
 
 We assume **500M search queries per day**, and each search triggers multiple requests (e.g., pagination, filters).
@@ -64,7 +64,7 @@ We assume **500M search queries per day**, and each search triggers multiple req
 Assuming an **average of 20 requests per search**:
 
 \[
-\text{Browsing/Search Requests} = 500M \times 20 = 10B \text{ requests per day}
+\text{Browsing/Search Requests} = 500M times 20 = 10B text{ requests per day}
 \]
 
 ### **Requests Per Second (RPS) Calculation**
