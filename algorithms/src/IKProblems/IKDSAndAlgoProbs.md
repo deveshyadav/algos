@@ -125,24 +125,71 @@
 - **Complete All Courses With Dependencies**
 
 ## Dynamic Programming
-- **Fibonacci Number**
-- **Jump Ways**
-- **N Choose R**
-- **Unique Paths**
-- **Maximum Path Sum**
-- **Min Cost Climbing Stairs**
-- **Minimum Coins**
-- **Count Ways To Reach The Nth Step**
-- **Jump Game**
-- **Coin Play**  
-  _Consider a row of n coins of values v₁, v₂, …, vₙ. Two players alternate turns, each selecting either the first or last coin from the row. Determine the maximum amount of money you can definitely win if you move first._
-- **Cut The Rod To Maximize Profit**
-- **Number Of Ways To Make Change**
-- **Equal Subset Partition**
-- **Levenshtein Distance**
-- **Word Break Count**
-- **Largest Square Submatrix With All 1s**
-- **Word Wrap**
-- **Strings Interleave**
-- **Longest Common Subsequence**
-- **Matrix Chain Multiplication**
+### 1. Fibonacci / Recurrence Pattern
+
+**Description:** Problems where the solution is built by combining results from one or two previous states. These problems often have a simple recurrence relation.
+
+**Problems:**
+
+* **Fibonacci Number:** Classic example of a simple recurrence relation.
+* **Count Ways To Reach The Nth Step:** Similar to climbing stairs, relies on combining previous results.
+
+### 2. 0/1 Knapsack / Subset Sum Pattern
+
+**Description:** Problems that involve making choices to include or exclude items to maximize or minimize a value within constraints.
+
+**Problems:**
+
+* **Equal Subset Partition:** Determines if a set can be partitioned into two subsets with equal sums.
+* **Minimum Coins:** Finding the minimum number of coins to make a target sum (can also be viewed as an unbounded knapsack).
+* **Number Of Ways To Make Change:** Counting the number of ways to make change for a given amount.
+* **Coin Play:** Finding the optimal strategy for a coin game (involves making choices, similar to knapsack).
+
+### 3. Longest Common Subsequence (LCS) / Edit Distance Pattern
+
+**Description:** Problems that compare sequences (strings, arrays) and build solutions based on match/mismatch or insert/delete operations.
+
+**Problems:**
+
+* **Levenshtein Distance:** Calculates the minimum edit distance between two strings.
+* **Longest Common Subsequence:** Finds the longest common subsequence between two sequences.
+* **Strings Interleave:** Checks if a string is an interleaving of two other strings.
+
+### 4. Longest Increasing Subsequence (LIS) / Sequence Related Pattern
+
+**Description:** Problems that involve finding optimal subsequences or sequences based on given constraints.
+
+**Problems:**
+
+* **Jump Ways:** Counting the ways to reach the last index of an array by jumping.
+* **Jump Game:** Determining if it is possible to reach the last index of an array by jumping.
+
+### 5. DP on Intervals / Partitioning Pattern
+
+**Description:** Problems that require partitioning a sequence or interval into segments to optimize a cost or value.
+
+**Problems:**
+
+* **Cut The Rod To Maximize Profit:** Finding the maximum profit by cutting a rod into pieces.
+* **Matrix Chain Multiplication:** Optimizing the order of matrix multiplications.
+* **Word Wrap:** Optimizing line breaks to minimize cost.
+
+### 6. DP on Grids / Paths Pattern
+
+**Description:** Problems that involve finding optimal paths or values within grid structures.
+
+**Problems:**
+
+* **Unique Paths:** Counting the number of unique paths in a grid.
+* **Maximum Path Sum:** Finding the maximum sum path in a grid or tree.
+* **Largest Square Submatrix With All 1s:** Finding the largest square submatrix with all 1s.
+
+### 7. Other DP Patterns
+
+**Description:** Problems that don't neatly fit into the above categories or are specific variations.
+
+**Problems:**
+
+* **N Choose R:** Combinatorial problem that can be solved using DP.
+* **Min Cost Climbing Stairs:** Finding the minimum cost to climb stairs (a variation of the Fibonacci/Recurrence Pattern, but often treated separately).
+* **Word Break Count:** Counting the number of ways a string can be segmented into dictionary words.
