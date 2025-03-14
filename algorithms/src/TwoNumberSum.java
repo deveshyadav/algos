@@ -1,4 +1,3 @@
-package net.javaguides.orderservice.config;
 
 import java.util.*;
 
