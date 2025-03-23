@@ -23,6 +23,7 @@ public class PermuteIntArray {
         {
             res.add(new ArrayList<>(current));
         }
+
         for(int i=0;i<arr.size();i++){
             if(current.contains(arr.get(i))){
                 continue;

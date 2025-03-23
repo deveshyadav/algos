@@ -9,11 +9,8 @@ public class SubsetsOfArray {
     private static AtomicInteger atomicInteger = new AtomicInteger(0);
     public static void main(String[] args) {
         String str = "str";
-        ArrayList<String> arr = str.chars()
-                .mapToObj(c->String.valueOf((char)c))
-                .collect(Collectors.toCollection(ArrayList::new));
+        char[] arr = str.toCharArray();
 
-        arr.forEach(System.out::println);
         ArrayList<String> res = new ArrayList<>();
         StringBuilder current = new StringBuilder();
         permute(arr, current, res, 0);
@@ -22,13 +19,13 @@ public class SubsetsOfArray {
     }
 
 
-private static void permute(ArrayList<String> arr, StringBuilder current, ArrayList<String> res, int size) {
+private static void permute(char[] arr, StringBuilder current, ArrayList<String> res, int size) {
     //System.out.println("See result:-" + atomicInteger.incrementAndGet());
     //res.forEach(System.out::println);
     res.add(current.toString());
 
-    for(int i=size;i<arr.size();i++){
-        current.append(arr.get(i));
+    for(int i=size;i<arr.length;i++){
+        current.append(arr[i]);
         permute(arr, current, res, i+1);
         current.deleteCharAt(current.length()-1);
     }
