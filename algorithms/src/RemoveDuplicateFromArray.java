@@ -15,11 +15,8 @@ public class RemoveDuplicateFromArray {
         int i =0;
         int j = 1;
         while(j<n-1){
-            System.out.println("i: "+i + " j: "+j);
-            System.out.println("nums i: "+nums[i] + " nums j: "+nums[j]);
             int cur = nums[i];
             if(cur < nums[j]){
-                System.out.println("if cur: "+cur + " nums j: "+nums[j]);
                i++;
                count++;
                cur  = nums[i];
@@ -30,11 +27,9 @@ public class RemoveDuplicateFromArray {
                   j++;
                 }
                 count++;
-                System.out.println("else cur: "+cur + " nums j: "+nums[j]);
                 cur = nums[j];
                 nums[++i] = cur;
                 j = i+1;
-                System.out.println("else nums i: "+nums[i] + " nums j: "+nums[j]);
             }
         }
         return count;
