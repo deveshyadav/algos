@@ -1,4 +1,4 @@
-package leetcode.two_pointer;
+package monthmarathon.leetcode.fifteen_june;
 
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -1,51 +1,60 @@
 package leetcode.two_pointer;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.stream.IntStream;
 
 public class ThreeNumTargetSum {
 
     public static void main(String[] args) {
-        int[] arr = {-1,0,1,2,-1,-4};
+        int[] arr = {-1, 0, 1, 2, -1, -4};
         Arrays.sort(arr);
-        ArrayList<Integer> input  = new ArrayList<>(IntStream.of(arr).boxed().toList());
-        ArrayList<ArrayList<Integer>> res = getRes(input);
-        System.out.println("wew"+res.isEmpty());
-        res.forEach(System.out::println);
+        int[][] res = getRes(arr);
+
+        System.out.println("wew" + (res.length == 0));
+        for (int[] triplet : res) {
+            System.out.println(Arrays.toString(triplet));
+        }
     }
 
-    private static ArrayList<ArrayList<Integer>> getRes(ArrayList<Integer> input) {
-        int n = input.size();
-        ArrayList<ArrayList<Integer>> res = new ArrayList<>();
-        for(int i=0;i<n-2;i++){
+    private static int[][] getRes(int[] input) {
+        int n = input.length;
+        int[][] tempRes = new int[n * n][3]; // worst-case space
+        int count = 0;
 
-            if(i>0 && input.get(i).equals(input.get(i-1))) continue;
+        for (int i = 0; i < n - 2; i++) {
 
-            int left = i+1;
-            int right = n-1;
-            while(left<right){
-                int sum = input.get(i) + input.get(left) + input.get(right);
+            if (i > 0 && input[i] == input[i - 1]) continue;
 
-                if(sum==0) {
+            int left = i + 1;
+            int right = n - 1;
 
-                    ArrayList<Integer> temp = new ArrayList<>(Arrays.asList(input.get(i), input.get(left), input.get(right)));
-                    res.add(temp);
-                    while(left<right && input.get(left).equals(input.get(left+1))){
-                        left++;
-                    }
-                    while(left<right && input.get(right).equals(input.get(right-1))){
-                        right--;
-                    }
+            while (left < right) {
+                int sum = input[i] + input[left] + input[right];
+
+                if (sum == 0) {
+                    tempRes[count][0] = input[i];
+                    tempRes[count][1] = input[left];
+                    tempRes[count][2] = input[right];
+                    count++;
+
+                    while (left < right && input[left] == input[left + 1]) left++;
+                    while (left < right && input[right] == input[right - 1]) right--;
+
                     left++;
                     right--;
+                } else if (sum > 0) {
+                    right--;
+                } else {
+                    left++;
                 }
-                else if(sum>0) right--;
-                else left++;
             }
         }
+
+        // Trim the result to the actual number of triplets
+        int[][] res = new int[count][3];
+        for (int i = 0; i < count; i++) {
+            res[i] = Arrays.copyOf(tempRes[i], 3);
+        }
+
         return res;
     }
-
-
 }
