@@ -1,6 +1,4 @@
-package monthmarathon.leetcode.fifteen_june;
-
-import java.util.List;
+package monthmarathon.leetcode.TwoPointer.fifteen_june;
 
 public class RemoveDuplicatesFromArray {
 

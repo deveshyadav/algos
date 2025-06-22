@@ -1,6 +1,4 @@
-package monthmarathon.leetcode.fifteen_june;
-
-import java.util.Arrays;
+package monthmarathon.leetcode.TwoPointer.fifteen_june;
 
 public class ContainerWithMostWater {
 

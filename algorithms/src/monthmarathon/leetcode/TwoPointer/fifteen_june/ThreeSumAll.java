@@ -1,4 +1,4 @@
-package monthmarathon.leetcode.fifteen_june;
+package monthmarathon.leetcode.TwoPointer.fifteen_june;
 
 import java.util.*;
 
