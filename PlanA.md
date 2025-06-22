@@ -3,7 +3,7 @@
 ## **📅 Week-by-Week Study Plan**
 | **Week** | **Focus Area** | **Topics & Hands-on Tasks** |
 |----------|--------------|----------------------------|
-| 1 | Core Java | Java Memory Model, Collections, Exception Handling, Multithreading |
+| 1 | Core Java | OOPS, Java Memory Model, Collections, Exception Handling, Multithreading |
 | 2 | Java 8-21 Features | Streams, Functional Programming, Virtual Threads |
 | 3 | Spring Boot | IoC, AOP, Security, JPA/Hibernate Transactions |
 | 4 | Microservices | API Gateway, Circuit Breakers, Messaging (Kafka) |
@@ -17,6 +17,7 @@
 
 ## **1️⃣ Java Fundamentals (Depth: Strong)**
 ### **Concepts to Study**
+- OOPs
 - Java Memory Management (Heap, Stack, GC)
 - String Pool & Interning
 - Collections Framework (List, Set, Map, Queue, Concurrent Collections)
