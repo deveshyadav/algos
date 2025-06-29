@@ -1,8 +1,5 @@
 package monthmarathon.leetcode.dfs;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class AreaOfLand {
     static int maxA =0;
     public static void main(String[] args) {
