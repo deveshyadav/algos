@@ -3,6 +3,13 @@ package monthmarathon.leetcode.TwoPointer.seventeen_june;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Find length of longest substring with all unique characters (non-repeating)
+ * Time: O(n), Space: O(n) — Sliding window with HashMap to track last seen index
+ * On repeat within window, move left pointer to 1 past previous index
+ *
+ * Classic unique-substring problem (LeetCode 3)
+ */
 public class LongestSubstringWithUniqueChars {
     public static void main(String[] args) {
         String str = "aab";
@@ -11,23 +18,19 @@ public class LongestSubstringWithUniqueChars {
     }
 
     private static int longestSubstring(String str) {
-        char[] arr = str.toCharArray();
-        int n = arr.length;
-        int maxlen = 0;
-        int begin =0;
-        Map<Character,Integer> map = new HashMap<>();
-        for(int i=0;i<n;i++){
-            int x = map.getOrDefault(arr[i],-1);
-            if(x>=begin) {
-                if (i - begin > maxlen) {
-                    maxlen = i - begin;
-                }
-                begin = x + 1;
-            }
-            map.put(arr[i], i);
+        Map<Character, Integer> map = new HashMap<>();
+        int maxLen = 0, start = 0;
 
+        for (int end = 0; end < str.length(); end++) {
+            char c = str.charAt(end);
+            if (map.containsKey(c) && map.get(c) >= start) {
+                start = map.get(c) + 1;
+            }
+            map.put(c, end);
+            maxLen = Math.max(maxLen, end - start + 1);
         }
-        maxlen = Math.max(maxlen, n - begin);
-        return maxlen;
+
+        return maxLen;
     }
+
 }

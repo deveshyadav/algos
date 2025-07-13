@@ -1,5 +1,12 @@
 package monthmarathon.leetcode.TwoPointer.ninteen_june;
 
+/**
+ * Find longest substring where at most k characters can be replaced to make all characters equal
+ * Time: O(n), Space: O(1) — Sliding window with freq array for A–Z
+ * Keeps track of max repeating char in window; shrinks window when replacements exceed k
+ *
+ * Problem: Longest Repeating Character Replacement (LeetCode 424)
+ */
 public class LongestSubstringOfRepeatedChars {
     public static void main(String[] args) {
         String str = "AABAACDE";

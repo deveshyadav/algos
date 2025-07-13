@@ -4,12 +4,20 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ *  Time: O(n + m), Space: O(1) — Sliding window with 26-size freq arrays (optimal for lowercase a–z)
+ *
+ *  Alt: Sort each substring of size m and compare with sorted s2 → Time: O(n * m log m), Space: O(m)
+ *  This uses freq arrays for constant-time anagram check vs. sort-based costly comparisons
+ */
 public class FindAllAnagrams {
     public static void main(String[] args) {
         String s1 = "abab";
         String s2 = "ab";
         List<Integer> res = getAllAnagramsIndex(s1,s2);
         res.forEach(System.out::println);
+
+
 
     }
 

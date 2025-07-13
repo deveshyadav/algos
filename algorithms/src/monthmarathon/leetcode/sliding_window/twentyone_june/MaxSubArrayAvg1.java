@@ -1,7 +1,12 @@
 package monthmarathon.leetcode.sliding_window.twentyone_june;
 
-import java.util.stream.Stream;
-
+/**
+ * Find maximum average of any subarray of size k
+ * Time: O(n), Space: O(1) — Sliding window sum over array
+ * Maintains current sum of window, updates max average
+ *
+ * Alt: Brute-force each window → Time: O(n * k), Space: O(1)
+ */
 public class MaxSubArrayAvg1 {
     public static void main(String[] args) {
         int[] nums = new int[]{5};
@@ -18,11 +23,11 @@ public class MaxSubArrayAvg1 {
 
         while(right<nums.length){
             curSum = curSum + nums[right];
-            if(right >= k){
+            if(right >= k){//slide window
                 curSum = curSum - nums[left];
                 left++;
             }
-            if (right > k-1) {
+            if (right > k-1) { //Use full window
                 maxAvg = Math.max((double) curSum / k, maxAvg);
             }
             right++;

@@ -5,9 +5,9 @@ import java.util.Arrays;
 public class MoveZeroesToEnd {
 
     public static void main(String[] args) {
-        int[] arr =  new int[]{1,2,3,1};
-        int cont = moveZeroes(arr);
-        System.out.println("Required-  " + cont);
+        int[] arr =  new int[]{0,1,0,2,3,1};
+        moveZeroes(arr);
+        System.out.println("Required-  " + Arrays.toString(arr));
     }
 
     /**
@@ -15,18 +15,19 @@ public class MoveZeroesToEnd {
      * @param arr
      * @return
      */
-    private static int moveZeroes(int[] arr) {
-        int n = arr.length;
-        int j= arr[0] == 0 ? 0 : 1;
-
-        for(int i=j+1;i<n-2;i++){
+    private static void moveZeroes(int[] arr) {
+        int j= 0;
+        int n=arr.length;
+        for(int i=0;i<n;i++){
             if(arr[i]!=0){
-                arr[j] = arr[i];
-                j++;
+                arr[j++] = arr[i];
+
             }
         }
-        System.out.println(Arrays.toString(arr));
-        return j+1;
+
+        while(j<n){
+            arr[j++]=0;
+        }
     }
 
 }

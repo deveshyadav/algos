@@ -1,5 +1,12 @@
 package monthmarathon.leetcode.TwoPointer.eighteen_june;
 
+/**
+ * Reorder linked list as L0 → Ln → L1 → Ln-1 → L2 → ...
+ * Time: O(n), Space: O(1) — Find middle, reverse second half, merge alternately
+ * Uses fast-slow pointer to split list, reverses second half in-place
+ *
+ * Alt: Use ArrayList to store nodes and reorder → Time: O(n), Space: O(n)
+ */
 public class ReorderLinkedList {
 
     static class ListNode {
@@ -9,11 +16,6 @@ public class ReorderLinkedList {
         ListNode(int data){
             this.data = data;
             next=null;
-        }
-        ListNode(){}
-        ListNode(ListNode next, int data){
-            this.data = data;
-            this.next = next;
         }
     }
 
@@ -44,21 +46,21 @@ public class ReorderLinkedList {
     }
 
     private static ListNode reorderList(ListNode head) {
-        ListNode current = head;
-        ListNode middle = findMiddle(current);
+        ListNode middle = findMiddle(head);
         ListNode curr1 = middle.next;
         middle.next = null;
-        ListNode prev = null;
 
-        while(curr1!=null){
-            ListNode next = curr1.next;
-            curr1.next = prev;
-            prev = curr1;
-            curr1 = next;
+        ListNode prev = null;
+        while (curr1 != null) {
+            ListNode next = curr1.next;  // Store next
+            curr1.next = prev;           // Reverse pointer
+
+            prev = curr1;                // Move prev
+            curr1 = next;                // Move curr1 forward
         }
 
         ListNode t1 = head;
-        ListNode t2 = prev;
+        ListNode t2 = prev; // Prev is the head of reversed second half linked list
         while(t1!=null && t2!=null){
             ListNode next1 = t1.next;
             ListNode next2 = t2.next;

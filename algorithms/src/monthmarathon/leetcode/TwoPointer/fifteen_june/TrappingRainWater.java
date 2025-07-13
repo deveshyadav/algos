@@ -1,5 +1,13 @@
 package monthmarathon.leetcode.TwoPointer.fifteen_june;
 
+/**
+ * Compute total rainwater trapped between elevation bars
+ * Time: O(n), Space: O(1) — Two-pointer approach using leftMax and rightMax
+ * At each step, water trapped = min(max_left, max_right) - height[i]
+ * Moves the pointer with smaller height to ensure valid min boundary
+ *
+ * Alt: Use prefix/suffix max arrays → Time: O(n), Space: O(n)
+ */
 public class TrappingRainWater {
     public static void main(String[] args) {
         int[] arr =  new int[]{0,1,0,2,1,0,1,3,2,1,2,1};

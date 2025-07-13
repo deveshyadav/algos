@@ -2,8 +2,16 @@ package monthmarathon.leetcode.TwoPointer.fifteen_june;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.stream.IntStream;
 
+/**
+ * Find 3 integers in array whose sum is closest to the target
+ * Time: O(n²), Space: O(1) — Sort + two-pointer for each fixed element
+ * Keeps track of closest sum by comparing absolute differences
+ *
+ * Alt: Brute-force check all triplets → Time: O(n³), Space: O(1)
+ */
 public class ThreeNumSumClosest {
 
     public static void main(String[] args) {
@@ -16,33 +24,34 @@ public class ThreeNumSumClosest {
     }
 
     private static int getRes(ArrayList<Integer> input, int target) {
+        Collections.sort(input); // Required for two-pointer logic
         int n = input.size();
-        int bestSum = input.get(0)+input.get(1)+input.get(2);
-        int bestDiff = target - bestSum;
+        int bestSum = input.get(0) + input.get(1) + input.get(2);
+        int bestDiff = Math.abs(target - bestSum);
 
-        for(int i=0;i<n-3;i++){
+        for (int i = 0; i < n - 2; i++) {
+            int left = i + 1;
+            int right = n - 1;
 
-            int left = i+1;
-            int right = n-1;
-            while(left<right){
+            while (left < right) {
                 int sum = input.get(i) + input.get(left) + input.get(right);
-                int diff = Math.abs(target-sum);
-                if(diff < bestDiff) {
+                int diff = Math.abs(target - sum);
+
+                if (diff < bestDiff) {
                     bestDiff = diff;
                     bestSum = sum;
                 }
 
-                if(sum>target) right--;
-                else if(sum < target) left ++;
-                else {
-                    System.out.println("return1");
-                    return bestSum;
+                if (sum > target) {
+                    right--;
+                } else if (sum < target) {
+                    left++;
+                } else {
+                    return sum; // Exact match
                 }
-
             }
-
         }
-        System.out.println("return2");
+
         return bestSum;
     }
 

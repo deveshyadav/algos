@@ -1,9 +1,16 @@
 package monthmarathon.leetcode.sliding_window.twentyone_june;
 
+/**
+ * Find length of smallest subarray with sum ≥ target
+ * Time: O(n), Space: O(1) — Sliding window with expanding/shrinking bounds
+ * Shrinks left while window sum ≥ target to find minimal size
+ *
+ * Alt: Brute-force all subarrays → Time: O(n²), Space: O(1)
+ */
 public class MinimumSizeSubarraySum {
     public static void main(String[] args) {
         int[] arr = new int[]{2,3,1,2,4,3};
-        int target =7;
+        int target =1;
         int size = getMinSubArray(arr, target);
         System.out.println("Result: "+size);
     }
@@ -13,7 +20,7 @@ public class MinimumSizeSubarraySum {
         int n= arr.length;
         int right=0;
         int curSum =0;
-        int minSize=n+1;
+        int minSize=n+1; // Initialize with max size first
         while(right<n){
             curSum = curSum+arr[right];
 
@@ -24,7 +31,8 @@ public class MinimumSizeSubarraySum {
             }
             right++;
         }
-        return minSize==n+1? 0 : minSize;
+        return minSize >= n + 1 ? 0 : minSize;
+
     }
 
 

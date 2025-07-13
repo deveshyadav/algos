@@ -1,5 +1,12 @@
 package monthmarathon.leetcode.sliding_window.twentyone_june;
 
+/**
+ * Find the longest subarray with at most k zeros flipped to ones
+ * Time: O(n), Space: O(1) — Sliding window with fixed-size freq array
+ * Maintains max 1s count in window, allows at most k zero flips
+ *
+ * Alt: Brute-force all subarrays → Time: O(n²), Space: O(1)
+ */
 public class LongestOnesInArray {
     public static void main(String[] args) {
         int[] nums = new int[]{0,1,1,1,1,1,0,0,1,1,0};
