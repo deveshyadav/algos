@@ -1,5 +1,15 @@
 package monthmarathon.leetcode.dp;
 
+/**
+ * Return length of Longest Common Subsequence (LCS) between two strings
+ * Time: O(m × n), Space: O(m × n) — Fill 2D DP table comparing characters of both strings
+ * Use dp[i][j] to represent the LCS of t1[0..i-1] and t2[0..j-1].
+ * Base case: LCS with empty string is 0.
+ * If characters match: dp[i][j] = 1 + dp[i-1][j-1]
+ * Else: dp[i][j] = max(dp[i-1][j], dp[i][j-1])
+ * This handles all possibilities of skipping characters in either string.
+ * Problem: LeetCode 1143 — Longest Common Subsequence
+ */
 public class LongestCommonSubsequence {
     public static void main(String[] args) {
         String t1 = "text1";

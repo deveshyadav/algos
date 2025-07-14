@@ -1,5 +1,13 @@
 package monthmarathon.leetcode.dp;
 
+/**
+ * Problem: Max money from non-adjacent houses (House Robber)
+ * Approach: Bottom-up DP — choose max of (skip current, or pick current + dp[i−2])
+ * Base cases: dp[0] = moneys[0], dp[1] = max(moneys[0], moneys[1])
+ * Transition: dp[i] = max(dp[i−1], dp[i−2] + moneys[i])
+ * Time: O(n), Space: O(n)
+ * LeetCode: 198 — House Robber
+ */
 public class Robbing {
     public static void main(String[] args) {
         int[] moneys = new int[]{2,1,1,9};

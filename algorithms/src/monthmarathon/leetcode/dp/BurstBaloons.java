@@ -1,14 +1,26 @@
 package monthmarathon.leetcode.dp;
 
+/**
+ * Problem: Burst Balloons (LeetCode 312)
+ * Goal: Find the maximum coins from bursting balloons wisely (each burst earns coins from nums[i-1] * nums[i] * nums[i+1])
+ *
+ * Approach: Bottom-up DP with interval segmentation
+ * - Pad the input array with 1 at both ends to handle edge balloons
+ * - dp[i][j] = max coins obtainable by bursting balloons between i and j (exclusive)
+ * - Try all possible k as the last balloon to burst in (i, j), and combine:
+ *   dp[i][j] = max(dp[i][k] + dp[k][j] + padded[i]*padded[k]*padded[j])
+ *
+ * Time Complexity: O(n^3) — 3 nested loops (length, i, k)
+ * Space Complexity: O(n^2) — dp table of size (n+2) x (n+2)
+ */
 public class BurstBaloons {
     public static void main(String[] args) {
-        int[] arr = new int[]{};
+        int[] arr = new int[]{3,1,5,8};
         int maxRes = getMaxRes(arr);
         System.out.println("Max output can be: " + maxRes);
     }
 
     private static int getMaxRes(int[] arr) {
-
 
         int n = arr.length;
 
@@ -56,6 +68,7 @@ public class BurstBaloons {
 
                     // Update dp[i][j] with the maximum coins found so far for this segment.
                     dp[i][j] = Math.max(dp[i][j], totalCoins);
+                    System.out.println("For i: "+i +" and j: "+j + " dp[i][j]: "+dp[i][j]);
                 }
             }
         }

@@ -1,4 +1,4 @@
-package leetcode;
+package monthmarathon.leetcode.arrays;
 
 public class EligibleForAward {
 

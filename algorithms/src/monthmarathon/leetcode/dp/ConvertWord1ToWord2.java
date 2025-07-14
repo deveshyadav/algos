@@ -1,6 +1,12 @@
 package monthmarathon.leetcode.dp;
 
-//EditDistance Problem
+
+/**
+ * Return minimum number of operations (insert, delete, replace) to convert one string to another
+ * Time: O(m × n), Space: O(m × n) — Bottom-up DP table where dp[i][j] is min operations to convert word1[0..i-1] to word2[0..j-1]
+ * If chars match, take diagonal value; else take min of insert, delete, replace
+ * Problem: LeetCode 72 — Edit Distance
+ */
 public class ConvertWord1ToWord2 {
     public static void main(String[] args) {
         String word1 = "horse";
@@ -22,6 +28,10 @@ public class ConvertWord1ToWord2 {
                     dp[i][j] = dp[i-1][j-1];
                 } else{
                     dp[i][j] = 1+ Math.min(dp[i-1][j], Math.min(dp[i][j-1], dp[i-1][j-1]));
+                    //min(Delete,Insert,Replace)
+                    //Delete-> 1 char deleted from w1, compare i-1 w1 with j w1
+                    //Insert-> 1 char inserted to w1, compare i w1 with j-1 w2
+                    //Replace-> 1 char replaced in w1 from w2, compare rest means w1 i-1 to w2 j-1
                 }
             }
         }
