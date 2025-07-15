@@ -1,7 +1,43 @@
-package monthmarathon.leetcode.mixed;
+package monthmarathon.leetcode.mixed.collections;
 
 import java.util.*;
 
+/**
+ * Problem: Find Median from Data Stream (LeetCode 295)
+ * Goal: Continuously add numbers and return the median in O(log n) per insertion.
+ *
+ * Approach: Two Heaps (Max-Heap + Min-Heap)
+ * 1. Max-Heap (pqMax):
+ *    - Stores the smaller half of numbers
+ *    - Top (peek) gives the largest of the smaller half
+ * 2. Min-Heap (pqMin):
+ *    - Stores the larger half of numbers
+ *    - Top (peek) gives the smallest of the larger half
+ *
+ * Insertion Logic:
+ * - If new number <= pqMax.peek() → add to pqMax; else add to pqMin
+ * - Rebalance heaps to maintain size property:
+ *   - pqMax can have at most 1 extra element (odd size → median is from pqMax)
+ *   - If pqMax.size() > pqMin.size() + 1 → move from pqMax → pqMin
+ *   - If pqMin.size() > pqMax.size() → move from pqMin → pqMax
+ *
+ * Median Calculation:
+ * - If both heaps are equal in size → median = (pqMax.peek() + pqMin.peek()) / 2.0
+ * - Otherwise → median = pqMax.peek() (since pqMax is allowed to have 1 extra element)
+ *
+ * Time Complexity:
+ * - addNum(): O(log n) — heap insertion & possible rebalancing
+ * - findMedian(): O(1) — just peek heap tops
+ *
+ * Space Complexity: O(n) — for storing all elements in heaps
+ *
+ * Alternative Approaches:
+ * 1. Balanced BST (like TreeMap or AVL tree)
+ *    - Median can be tracked using size-balanced tree
+ *    - Higher complexity to implement
+ * 2. Simple sorting after every insertion
+ *    - O(n log n) per add → inefficient for streaming data
+ */
 public class MedianFinder {
     List<Integer> result;
 
@@ -66,7 +102,6 @@ public class MedianFinder {
     }
 
     public double findMedian() {
-        int n = pqMin.size()+pqMax.size();
         double temp;
         if(pqMax.size() == pqMin.size()){
             temp =  (pqMax.peek() + pqMin.peek()) /2.0;

@@ -1,7 +1,6 @@
-package monthmarathon.leetcode;
+package monthmarathon.leetcode.mixed.collections;
 
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.PriorityQueue;
 
 public class ThreeNumsWithMaxProduct {

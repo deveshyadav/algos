@@ -5,6 +5,30 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * Problem: Course Schedule II (LeetCode 210)
+ * Goal: Return a possible order to finish all courses given prerequisites; return empty if impossible.
+ *
+ * Approach: DFS-based Topological Sort with Cycle Detection
+ * - Build a graph: graph[from].add(to)
+ * - Use two boolean arrays:
+ *   1. visited[node]: Marks if node is already processed
+ *   2. rec[node]: Recursion stack to detect cycles
+ * - DFS Logic:
+ *   1. If node already in rec → cycle → return true (no valid ordering)
+ *   2. If node already visited → skip
+ *   3. Mark visited and add to rec
+ *   4. DFS to all neighbors; if any DFS finds a cycle → propagate true
+ *   5. After processing, remove from rec and add node to result list (postorder)
+ * - Reverse result list at the end → gives topological ordering
+ *
+ * Time Complexity: O(V + E) — Each node and edge visited once
+ * Space Complexity: O(V) — visited[], rec[], and DFS recursion stack
+ *
+ * Alternative: Kahn’s Algorithm (BFS Topological Sort)
+ * - Use in-degree array + queue to build ordering
+ * - Time: O(V + E), Space: O(V)
+ */
 public class CourseSchedule2 {
 
     public static void main(String[] args) {

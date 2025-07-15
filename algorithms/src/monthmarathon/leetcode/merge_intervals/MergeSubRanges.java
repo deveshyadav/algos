@@ -1,10 +1,33 @@
-package monthmarathon.leetcode.mixed;
+package monthmarathon.leetcode.merge_intervals;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class MergeIntervals {
+/**
+ * Problem: Merge Intervals (LeetCode 56)
+ * Goal: Merge all overlapping intervals and return the resulting non-overlapping intervals.
+ *
+ * Approach: Sorting + Single Pass Merge
+ * 1. Sort intervals by start time
+ * 2. Initialize 'start' and 'end' with the first interval
+ * 3. Traverse all remaining intervals:
+ *    - If current interval overlaps (curStart <= end):
+ *        end = max(end, curEnd) → extend the merged interval
+ *    - Else:
+ *        Add [start, end] to result and reset start, end to current interval
+ * 4. After loop ends, add the last interval
+ *
+ * Time Complexity: O(n log n)
+ * - Sorting dominates; single pass after sorting is O(n)
+ *
+ * Space Complexity: O(n)
+ * - Result list stores merged intervals; can be O(1) if done in-place with careful manipulation
+ *
+ * Alternative Approach:
+ * - Sweep Line Algorithm (more complex, unnecessary for this standard problem)
+ */
+public class MergeSubRanges {
     public static void main(String[] args) {
         int[][] inp = new int[][]{{2,4},{5,5}};
         int[][] res = mergedIntervals(inp);

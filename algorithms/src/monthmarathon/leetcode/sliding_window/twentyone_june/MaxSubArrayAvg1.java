@@ -27,7 +27,7 @@ public class MaxSubArrayAvg1 {
                 curSum = curSum - nums[left];
                 left++;
             }
-            if (right > k-1) { //Use full window
+            if (right >= k-1) { //Use full window
                 maxAvg = Math.max((double) curSum / k, maxAvg);
             }
             right++;

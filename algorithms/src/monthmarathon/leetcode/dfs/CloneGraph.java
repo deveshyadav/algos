@@ -5,6 +5,27 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Problem: Clone Graph (LeetCode 133)
+ * Goal: Return a deep copy of an undirected connected graph, preserving all nodes and edges.
+ *
+ * Approach: DFS with HashMap
+ * - Use a HashMap<Node, Node> to store original → cloned node mappings
+ * - For each node:
+ *   1. If already cloned, return from map (prevents cycles/infinite recursion)
+ *   2. Otherwise, clone the current node and put it in map
+ *   3. Recursively clone all neighbors and add to cloned.neighbors list
+ *
+ * Time Complexity: O(V + E) — Each node and edge is visited once
+ * Space Complexity: O(V) — HashMap to store clones + recursion stack (worst case)
+ *
+ * Alternative: BFS Iterative Approach
+ * - Use a queue to traverse nodes level by level
+ * - Clone nodes when first seen and push into queue
+ * - For each neighbor, either clone or fetch from map, then link to current clone
+ * Time Complexity: O(V + E)
+ * Space Complexity: O(V)
+ */
 public class CloneGraph {
 
     static Map<Node, Node> map = new HashMap<>();
@@ -29,7 +50,7 @@ public class CloneGraph {
 
         if(map.containsKey(node1))
         {
-            return node1;
+            return map.get(node1);
         }
 
         Node cloned = new Node(node1.val);
@@ -46,21 +67,13 @@ public class CloneGraph {
     static class Node {
         public int val;
         public List<Node> neighbors;
-        public Node() {
-            val = 0;
-            neighbors = new ArrayList<Node>();
-        }
         public Node(int _val) {
             val = _val;
             neighbors = new ArrayList<Node>();
         }
-        public Node(int _val, ArrayList<Node> _neighbors) {
-            val = _val;
-            neighbors = _neighbors;
-        }
         @Override
         public String toString() {
-            return "->" + val + "->" + neighbors;
+            return STR."->\{val}->\{neighbors}";
         }
 
 

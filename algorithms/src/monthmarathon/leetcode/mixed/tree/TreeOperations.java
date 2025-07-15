@@ -1,4 +1,4 @@
-package monthmarathon.leetcode;
+package monthmarathon.leetcode.mixed.tree;
 
 public class TreeOperations {
     public static void main(String[] args) {
