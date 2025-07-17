@@ -31,7 +31,6 @@ public class Q17ProducerConsumerProblem {
         public void run() {
 
                 try {
-
                     while (true) {
                         Integer item = queue.take();
                         System.out.println("ConsumedItem: "+item);
