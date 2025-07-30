@@ -1,12 +1,15 @@
 package interview_questions_java_sb_design_etc.concurrency;
 
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.locks.ReentrantLock;
+
 public class Q20ThreadLocal {
         // Each thread gets its own copy of this variable
         private static ThreadLocal<String> threadLocal = new ThreadLocal<>();
 
         private static String sharedValue;
 
-        public static void main(String[] args) {
+        public static void main(String[] args) throws InterruptedException {
             Runnable task = () -> {
                 // Set value specific to current thread
                 threadLocal.set("Value for " + Thread.currentThread().getName());
@@ -23,10 +26,6 @@ public class Q20ThreadLocal {
             // Start two threads
             Thread t1 = new Thread(task, "Thread-A");
             Thread t2 = new Thread(task, "Thread-B");
-
-            t1.start();
-            t2.start();
-
 
             //Without Thread local same code
 

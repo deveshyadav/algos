@@ -1,5 +1,6 @@
 package interview_questions_java_sb_design_etc.advancedjdkversions;
 
+//Java 21 feature
 public class Q24UnnamedPatterns {
 
         public static void main(String[] args) {

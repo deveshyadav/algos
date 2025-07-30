@@ -7,7 +7,7 @@ package monthmarathon.leetcode.dp;
  * If chars match, take diagonal value; else take min of insert, delete, replace
  * Problem: LeetCode 72 — Edit Distance
  */
-public class ConvertWord1ToWord2 {
+public class EditDistanceWord1ToWord2 {
     public static void main(String[] args) {
         String word1 = "horse";
         String word2 = "ros";

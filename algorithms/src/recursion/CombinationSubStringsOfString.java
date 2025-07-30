@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
-public class SubsetsOfArray {
+public class CombinationSubStringsOfString {
 
     private static AtomicInteger atomicInteger = new AtomicInteger(0);
     public static void main(String[] args) {

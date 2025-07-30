@@ -1,33 +1,27 @@
 package leetcode;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
+import java.util.stream.Stream;
 
+import static java.util.stream.Collectors.toList;
+
+class Parent {
+    static void show(){ System.out.println("Parent"); }
+}
+class Child extends Parent {
+    static void show(){ System.out.println("Child"); }
+}
 public class Test {
-    public static void main(String[] args) {
-        String str = "aaaadff";
-        String substr = getLSWR(str);
-        System.out.println(substr);
-    }
+    public static void main(String[] args){
+        Parent p = new Child();
+        p.show();
 
-    private static String getLSWR(String str) {
-        int left=0;
-        Map<Character,Integer> map = new HashMap<>();
-        int startIndex = 0;
-        int maxC = 0;
+        Map<Integer, String> set = new LinkedHashMap<>(2,0.75f,true);
+        set.put(1,"on1");
+        set.put(2,"2");
+        set.put(3,"3");
+        set.get(2);
+        System.out.println(set.entrySet());
 
-        for(int right=0;right<str.length();right++){
-            char cur = str.charAt(right);
-            if(map.containsKey(cur) && map.get(cur)>=left){
-                left = map.get(cur)+1;
-            }
-            map.put(cur,right);
-            if(right-left+1>maxC){
-                maxC = right-left+1;
-                startIndex = left;
-            }
-        }
-
-        return str.substring(startIndex, startIndex+maxC);
     }
 }

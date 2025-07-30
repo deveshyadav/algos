@@ -43,7 +43,11 @@ public class GraphCycleDetection {
                 {0, 1}, {1, 2}, {2, 3}, {3, 4}, {2, 4} // forms a cycle
         };
         System.out.println("Undirected (DFS): " + hasCycleUndirectedDFS(5, undirectedEdges));
+
+
+        //#################################
         System.out.println("Undirected (Union-Find): " + hasCycleUndirectedUnionFind(5, undirectedEdges));
+        //#################################
 
         // ---------- Directed Graph Example ----------
         int[][] directedEdges = {
@@ -80,24 +84,6 @@ public class GraphCycleDetection {
         return false;
     }
 
-    // ---------------- UNDIRECTED GRAPH: UNION-FIND ----------------
-    public static boolean hasCycleUndirectedUnionFind(int n, int[][] edges) {
-        int[] parent = new int[n];
-        for (int i = 0; i < n; i++) parent[i] = i;
-
-        for (int[] e : edges) {
-            int p1 = find(parent, e[0]);
-            int p2 = find(parent, e[1]);
-            if (p1 == p2) return true; // same set → cycle
-            parent[p1] = p2;
-        }
-        return false;
-    }
-
-    private static int find(int[] parent, int x) {
-        if (parent[x] != x) parent[x] = find(parent, parent[x]);
-        return parent[x];
-    }
 
     // ---------------- DIRECTED GRAPH: DFS ----------------
     public static boolean hasCycleDirectedDFS(int n, int[][] edges) {
@@ -125,6 +111,27 @@ public class GraphCycleDetection {
 
         recStack[node] = false;
         return false;
+    }
+
+
+
+    // ---------------- UNDIRECTED GRAPH: UNION-FIND ----------------
+    public static boolean hasCycleUndirectedUnionFind(int n, int[][] edges) {
+        int[] parent = new int[n];
+        for (int i = 0; i < n; i++) parent[i] = i;
+
+        for (int[] e : edges) {
+            int p1 = find(parent, e[0]);
+            int p2 = find(parent, e[1]);
+            if (p1 == p2) return true; // same set → cycle
+            parent[p1] = p2;
+        }
+        return false;
+    }
+
+    private static int find(int[] parent, int x) {
+        if (parent[x] != x) parent[x] = find(parent, parent[x]);
+        return parent[x];
     }
 }
 

@@ -68,4 +68,8 @@ class ReadWriteMap<K,V> {
             writeLock.unlock();
         }
     }
+
+    public void getVal(){
+
+    }
 }

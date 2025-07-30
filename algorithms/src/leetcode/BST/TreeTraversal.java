@@ -1,4 +1,4 @@
-package recursion.BST;
+package leetcode.BST;
 
 import java.util.Arrays;
 import java.util.List;

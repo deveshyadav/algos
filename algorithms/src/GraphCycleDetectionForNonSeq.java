@@ -58,8 +58,7 @@
 
         if (graph.hasCycle()) {
             System.out.println("Graph contains a cycle");
-        } else {
-            System.out.println("Graph does not contain a cycle");
+        } else {            System.out.println("Graph does not contain a cycle");
         }
     }
 }

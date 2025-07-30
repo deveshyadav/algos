@@ -13,7 +13,7 @@ package monthmarathon.leetcode.dp;
  * Time Complexity: O(n^3) — 3 nested loops (length, i, k)
  * Space Complexity: O(n^2) — dp table of size (n+2) x (n+2)
  */
-public class BurstBaloons {
+public class BurstBalloonsForMaxCoins {
     public static void main(String[] args) {
         int[] arr = new int[]{3,1,5,8};
         int maxRes = getMaxRes(arr);
