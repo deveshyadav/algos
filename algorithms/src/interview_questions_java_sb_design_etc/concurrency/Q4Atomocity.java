@@ -43,6 +43,7 @@ public class Q4Atomocity {
         }.start();
 
         try {
+
             Thread.sleep(20);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);

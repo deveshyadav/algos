@@ -12,7 +12,7 @@ public class Q3FailFastFailSafe {
         list.add("abc1");
 
         for (String s : list) {
-            // list.add("abc2");  //Fail-fast ConcurrentModificationException
+            //list.add("abc2");  //Fail-fast ConcurrentModificationException
             System.out.println(s);
         }
 

@@ -1,4 +1,4 @@
-package monthmarathon.leetcode.TwoPointer.sixteen_june;
+package freshworks;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -11,7 +11,7 @@ import java.util.List;
  * If any elements remain in nums2, copy them to the front of nums1
  * Problem: LeetCode 88 — Merge Sorted Array
  */
-public class MergeSortedArrays {
+public class _14MergeSortedArrays {
 
     public static void main(String[] args) {
         int[] arr1 =  new int[]{4,5,6,0,0,0};

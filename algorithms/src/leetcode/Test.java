@@ -1,27 +1,51 @@
 package leetcode;
 
 import java.util.*;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.LinkedBlockingQueue;
 import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.toList;
 
-class Parent {
-    static void show(){ System.out.println("Parent"); }
-}
-class Child extends Parent {
-    static void show(){ System.out.println("Child"); }
-}
 public class Test {
     public static void main(String[] args){
-        Parent p = new Child();
-        p.show();
+       String w1 = "SAM";
+       String w2 = "JOHN";
+       String store = "JOHNSAM";
 
-        Map<Integer, String> set = new LinkedHashMap<>(2,0.75f,true);
-        set.put(1,"on1");
-        set.put(2,"2");
-        set.put(3,"3");
-        set.get(2);
-        System.out.println(set.entrySet());
+       int slen = store.length();
+       int wordsLen = w1.length()+w2.length();
+
+       int[] f1 = new int[26];
+       int[] f2 = new int[26];
+
+       for(char c:store.toCharArray()) f2[c-'A']++;
+       for(char c:(w1+w2).toCharArray()) f1[c-'A']++;
+
+       boolean xx =  Arrays.equals(f1,f2);
+
+
+        System.out.println(xx ? "ys" :"no");
+
+        int[] a = {1,3,5,2,3,1};
+        int k = 3;
+        float[] res = new float[a.length - k + 1];
+
+        // Initial sum
+        int sum = 0;
+        for (int i = 0; i < k; i++) sum += a[i];
+        res[0] = Math.round((sum / (float)k) * 100f) / 100f;
+
+        // Slide window
+        for (int i = 1; i <= a.length - k; i++) {
+            sum = sum - a[i - 1] + a[i + k - 1];
+            res[i] = Math.round((sum / (float)k) * 100f) / 100f;
+        }
+
+        System.out.println(Arrays.toString(res));
 
     }
+
+
 }
+

@@ -1,6 +1,7 @@
 package recursion;
 
 import java.util.*;
+import java.util.stream.IntStream;
 
 /**
  * Recursive Solution
@@ -18,7 +19,7 @@ public class SubsetArraysForTargetSum {
     }
 
     private static void checkForSubsets(int[] arr, Set<List<Integer>> res, int ind, List<Integer> curr,int target) {
-        int sum  = curr.stream().reduce(Integer::sum).orElse(0);
+        int sum  = Arrays.stream(arr).sum();
         if(sum>target) return;
         if(sum ==target ){
             List<Integer> temp = new ArrayList<>(curr);

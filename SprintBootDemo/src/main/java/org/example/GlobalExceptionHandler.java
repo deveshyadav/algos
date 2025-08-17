@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.*;
+import java.util.concurrent.locks.ReentrantLock;
+
 
 @ControllerAdvice
 public class GlobalExceptionHandler {
@@ -41,6 +44,34 @@ public class GlobalExceptionHandler {
                 errors.put(error.getField(), error.getDefaultMessage())
         );
         return new ResponseEntity<>(errors, HttpStatus.BAD_REQUEST);
+    }
+
+}
+
+class Livelock {
+    static volatile boolean aliceReady = false;
+    static volatile boolean bobReady = false;
+
+    public static void main(String[] args) {
+        Thread alice = new Thread(() -> {
+            while (!bobReady) {
+                System.out.println("Alice: Waiting for Bob...");
+                aliceReady = true;
+            }
+            System.out.println("Alice: Done");
+        });
+
+        Thread bob = new Thread(() -> {
+            while (!aliceReady) {
+                System.out.println("Bob: Waiting for Alice...");
+                bobReady = true;
+            }
+            System.out.println("Bob: Done");
+        });
+
+        alice.start();
+        bob.start();
+
     }
 
 

@@ -50,7 +50,7 @@ public class OrderService {
     public void placeOrder(Order order) {
         orderRepository.save(order);
         System.out.println("Order placed successfully!");
-        // Simulating an error to test rollback
+        // Simulating an error to cache rollback
         if (order.getProduct().equals("error")) {
             throw new RuntimeException("Error occurred, rolling back transaction!");
         }

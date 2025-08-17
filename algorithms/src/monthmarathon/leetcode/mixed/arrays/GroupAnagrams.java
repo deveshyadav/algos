@@ -16,30 +16,8 @@ public class GroupAnagrams {
             Arrays.sort(cr);
             map.computeIfAbsent(Arrays.toString(cr), x-> new ArrayList<>()).add(str);
         }
-        List<List<String>> res = new ArrayList<>();
-        for(String key:map.keySet()){
-            res.add(map.get(key));
-        }
-        return res;
-    }
 
-    private static List<List<String>> getGroupedAnagrams1(String[] arr) {
-        Map<String, List<String>> map = new HashMap<>();
-        for(String str:arr){
-            char[] cr = str.toCharArray();
-            int[] count = new int[26];
-            for(char c:cr){
-                count[c-'a']++;
-            }
-            String key = Arrays.toString(count);
-            map.computeIfAbsent(key, x-> new ArrayList<>()).add(str);
-        }
-        List<List<String>> res = new ArrayList<>();
-        for(String key:map.keySet()){
-            res.add(map.get(key));
-        }
-        return res;
+        return map.values().stream().toList();
     }
-
 
 }
