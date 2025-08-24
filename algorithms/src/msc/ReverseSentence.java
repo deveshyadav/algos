@@ -1,3 +1,5 @@
+package msc;
+
 public class ReverseSentence {
     public static void main(String[] args) {
         String str = "Learn to  give";

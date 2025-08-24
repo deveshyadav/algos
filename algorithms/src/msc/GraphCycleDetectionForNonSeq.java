@@ -1,4 +1,6 @@
- import java.util.*;
+package msc;
+
+import java.util.*;
 
  public class GraphCycleDetectionForNonSeq{
     private final int vertices;

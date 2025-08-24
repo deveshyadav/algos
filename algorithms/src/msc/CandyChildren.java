@@ -1,3 +1,5 @@
+package msc;
+
 import java.util.Arrays;
 
 public class CandyChildren {

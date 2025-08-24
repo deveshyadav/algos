@@ -7,14 +7,6 @@ public class SearchSupportSystem {
         String[] products = new String[]{"bags","baggage","banner","box","cloths"};
         String str = "bags";
 
-        TreeMap<Integer,Integer> map = new TreeMap<>();
-        map.merge(1,1,Integer::sum);
-        map.merge(2,1,Integer::sum);
-        System.out.println(map);
-
-        //Integer dd = map.computeIfPresent(2, (k,v) -> v == 1 ? null : v - 1);
-
-        //System.out.println(dd);
         List<List<String>> res = getSearchedStrings(str,products);
         System.out.println(res);
 

@@ -4,8 +4,8 @@ import java.util.*;
 
 public class WordLader1 {
     public static void main(String[] args) {
-        String bs = "a";
-        String es = "c";
+        String bs = "abcd";
+        String es = "ab";
         List<String> strList  = Arrays.asList("a","b","c");
         int minPath = getMinPAth(bs,es,strList);
         System.out.println("Converted in steps: "+ minPath);

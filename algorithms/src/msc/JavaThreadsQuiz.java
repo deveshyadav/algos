@@ -1,17 +1,13 @@
-/*public class Main {
+package msc;/*public class Main {
     public static void main1(String[] args){
         A a = new B();
         System.out.println(a.x);
     }
 }*/
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 public class JavaThreadsQuiz
 {

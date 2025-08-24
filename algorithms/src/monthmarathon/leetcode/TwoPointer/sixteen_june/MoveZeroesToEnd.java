@@ -10,11 +10,7 @@ public class MoveZeroesToEnd {
         System.out.println("Required-  " + Arrays.toString(arr));
     }
 
-    /**
-     * Any element can occur at most twice
-     * @param arr
-     * @return
-     */
+
     private static void moveZeroes(int[] arr) {
         int j= 0;
         int n=arr.length;

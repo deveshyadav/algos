@@ -1,3 +1,5 @@
+package msc;
+
 import java.util.PriorityQueue;
 
 class ListNode {

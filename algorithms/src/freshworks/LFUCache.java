@@ -63,8 +63,10 @@ public class LFUCache {
         DList() { head.next = tail; tail.prev = head; }
 
         void addFirst(Node n) {
-            n.next = head.next; n.prev = head;
-            head.next.prev = n; head.next = n;
+            n.next = head.next;
+            n.prev = head;
+            head.next.prev = n;
+            head.next = n;
             size++;
         }
         void remove(Node n) {

@@ -18,19 +18,23 @@ public class LongestSubstringWithUniqueChars {
     }
 
     private static int longestSubstring(String str) {
-        Map<Character, Integer> map = new HashMap<>();
+        Map<Character, Integer> map = new HashMap<>(); // stores last index of each character
         int maxLen = 0, start = 0;
 
         for (int end = 0; end < str.length(); end++) {
             char c = str.charAt(end);
+
+            // If character is repeated and its last index is within current window
             if (map.containsKey(c) && map.get(c) >= start) {
-                start = map.get(c) + 1;
+                start = map.get(c) + 1; // move start to exclude previous occurrence
             }
-            map.put(c, end);
-            maxLen = Math.max(maxLen, end - start + 1);
+
+            map.put(c, end); // update last index of current character
+            maxLen = Math.max(maxLen, end - start + 1); // update max length of unique substring
         }
 
         return maxLen;
     }
+
 
 }
