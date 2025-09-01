@@ -1,10 +1,11 @@
+/*
 package interview_questions_java_sb_design_etc.advancedjdkversions;
 
 //Java 21 feature
 public class Q24UnnamedPatterns {
 
         public static void main(String[] args) {
-            Object input = 123;
+            Object input = (Object) 123;
 
             // 1. switch expression using underscore
             String result = switch (input) {
@@ -34,3 +35,4 @@ public class Q24UnnamedPatterns {
             }
         }
     }
+*/

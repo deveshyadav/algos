@@ -73,7 +73,8 @@ public class CloneGraph {
         }
         @Override
         public String toString() {
-            return STR."->\{val}->\{neighbors}";
+            return null;
+           // return STR."->\{val}->\{neighbors}";
         }
 
 

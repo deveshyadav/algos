@@ -30,7 +30,7 @@ public class SubsetArraysForTargetSum {
             if(i>ind && arr[i]==arr[i-1]) continue;
             curr.add(arr[i]);
             checkForSubsets(arr,res, i+1, curr,target);
-            curr.removeLast();
+            //curr.removeLast();
         }
     }
 }

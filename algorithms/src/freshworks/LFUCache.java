@@ -45,6 +45,7 @@ public class LFUCache {
 
     private void touch(Node n) {
         DList cur = freq.get(n.f);
+
         cur.remove(n);
         if (cur.size == 0 && n.f == minFreq) minFreq++;
         n.f++;
@@ -69,11 +70,13 @@ public class LFUCache {
             head.next = n;
             size++;
         }
+
         void remove(Node n) {
             n.prev.next = n.next; n.next.prev = n.prev;
             n.prev = n.next = null;
             size--;
         }
+
         Node removeLast() {
             if (size == 0) return null;
             Node n = tail.prev;

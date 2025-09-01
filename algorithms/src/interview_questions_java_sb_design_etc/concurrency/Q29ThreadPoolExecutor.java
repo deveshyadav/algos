@@ -27,8 +27,8 @@ public class Q29ThreadPoolExecutor {
                     throw new RuntimeException(e);
                 }
 
-                System.out.println(STR."Executor executing task: \{taskId}Executed by thread: \{
-                        Thread.currentThread().getName()}");
+                //System.out.println(STR."Executor executing task: \{taskId}Executed by thread: \{
+                      //  Thread.currentThread().getName()}");
             });
             System.out.println("Task done: " + taskId);
         }

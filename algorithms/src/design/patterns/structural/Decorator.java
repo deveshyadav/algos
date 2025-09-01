@@ -36,7 +36,8 @@ class MilkBeverage implements Coffee{
 
     @Override
     public String getDescription() {
-        return STR."\{coffee.getDescription()} + Milk";
+        return null;
+        //return STR."\{coffee.getDescription()} + Milk";
     }
 
     @Override
